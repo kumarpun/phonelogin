@@ -1,3 +1,3 @@
 module.exports = {
-  'database': 'mongodb://localhost:27017/phone12'
+  'database': 'mongodb+srv://kumarpun:jimin@1234@cluster0-83sos.mongodb.net/phone?retryWrites=true&w=majority'
 };
