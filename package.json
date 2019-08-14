@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "simple nodejs rest api with authentication",
   "main": "server.js",
+  "build:deploy": "cross-env NODE_ENV=production webpack",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "nodemon server.js",
-    "postinstall": "ng build --aot --prod"
+    "development": "cross-env NODE_ENV=production"
   },
   "author": "",
   "license": "ISC",
