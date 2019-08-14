@@ -1,7 +1,7 @@
 {
-  "name": "secure_restapi_demo",
+  "name": "phonelogin",
   "version": "1.0.0",
-  "description": "simple nodejs rest api with authentication",
+  "description": "",
   "main": "server.js",
   "build:deploy": "cross-env NODE_ENV=production webpack",
   "scripts": {
