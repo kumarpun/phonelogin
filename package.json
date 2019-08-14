@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "build:deploy": "cross-env NODE_ENV=production webpack",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "nodemon server.js",
