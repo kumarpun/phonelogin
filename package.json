@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "nodemon server.js",
-    "development": "cross-env NODE_ENV=production"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
