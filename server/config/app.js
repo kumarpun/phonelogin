@@ -14,6 +14,15 @@ module.exports = function () {
         server.set('env', config.env);
         server.set('port', config.port);
         server.set('hostname', config.hostname);
+
+
+        server.use(function(req, res, next) {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requestes-with, Content-Type, Accept, token");
+            res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+            res.header("Access-Control-Allow-Headers", "*")
+            next();
+        });
         
         // add middleware to parse the json
         server.use(bodyParser.json());
