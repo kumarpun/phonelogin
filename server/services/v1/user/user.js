@@ -55,7 +55,37 @@ const updateIme = async (req, res, next) => {
     }
 }
 
+const updateImeWithPhone = async (req, res, next) => {
+
+    let { phone } = req.params;
+
+    let { ime } = req.body;
+
+    try {
+        let user = await userModel.findOneAndUpdate(phone, {
+            ime: ime
+        });
+
+        if(!user) {
+            throw new error();
+        }
+
+        return res.status(201).json({
+            "success": [{
+                "msg": "Update successfull"
+            }]
+        });
+    } catch(error) {
+        console.log(error);
+        return res.status(500).json({
+            "errors": [{
+                "msg": "problem while updating"
+            }]
+        })
+    }
+}
 module.exports = {
     getUserDetails : getUserDetails,
-    updateIme : updateIme
+    updateIme : updateIme,
+    updateImeWithPhone : updateImeWithPhone
 }
