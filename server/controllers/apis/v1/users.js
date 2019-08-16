@@ -4,6 +4,8 @@ const userService = require('../../../services/v1/user/user');
 let router = express.Router();
 
 router.get('/:userId', userService.getUserDetails);
+router.get('/', userService.getUserByPhone);
+
 router.put('/:userId',  userService.updateIme);
 router.put('/phone', userService.updateImeWithPhone);
 
