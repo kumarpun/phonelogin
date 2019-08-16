@@ -13,7 +13,8 @@ const register = async (req,res,next) => {
     if(isPhoneExists){
         return res.status(409).json({
             "errors" : [{
-                "msg" : "phone number already exists"
+                "msg" : "phone number already exists",
+
             }]
         })
     }
@@ -31,7 +32,9 @@ const register = async (req,res,next) => {
     
         return res.status(201).json({
             "success" : [{
-                "msg" : "phone number registered successfully"
+                "msg" : "phone number registered successfully",
+                "data": user
+
             }]
         });
     }catch(error){
