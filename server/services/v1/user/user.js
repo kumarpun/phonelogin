@@ -63,7 +63,9 @@ const updateIme = async (req, res, next) => {
 
         return res.status(201).json({
             "success": [{
-                "msg": "Update successfull"
+                "msg": "Update successfull",
+                "data": user
+
             }]
         });
     } catch(error) {
@@ -76,38 +78,40 @@ const updateIme = async (req, res, next) => {
     }
 }
 
-const updateImeWithPhone = async (req, res, next) => {
+// const updateImeWithPhone = async (req, res, next) => {
 
-    let { phone } = req.params;
+//     let { phone } = req.params;
 
-    let { ime } = req.body;
+//     let { ime } = req.body;
 
-    try {
-        let user = await userModel.findOneAndUpdate(phone, {
-            ime: ime
-        });
+//     try {
+//         let user = await userModel.findOneAndUpdate(phone, {
+//             ime: ime
+//         });
 
-        if(!user) {
-            throw new error();
-        }
+//         if(!user) {
+//             throw new error();
+//         }
 
-        return res.status(201).json({
-            "success": [{
-                "msg": "Update successfull"
-            }]
-        });
-    } catch(error) {
-        console.log(error);
-        return res.status(500).json({
-            "errors": [{
-                "msg": "problem while updating"
-            }]
-        })
-    }
-}
+//         return res.status(201).json({
+//             "success": [{
+//                 "msg": "ime updated successfully",
+//                 "data": user
+
+//             }]
+//         });
+//     } catch(error) {
+//         console.log(error);
+//         return res.status(500).json({
+//             "errors": [{
+//                 "msg": "problem while updating"
+//             }]
+//         })
+//     }
+// }
 module.exports = {
     getUserDetails : getUserDetails,
-    updateIme : updateIme,
-    updateImeWithPhone : updateImeWithPhone,
-    getUserByPhone : getUserByPhone
+    // updateImeWithPhone : updateImeWithPhone,
+    getUserByPhone : getUserByPhone,
+    updateIme : updateIme
 }
