@@ -47,45 +47,23 @@ const getUserByPhone = async (req, res, next) => {
 
 const updateIme = async (req, res, next) => {
 
-    let { userId } = req.params;
-
-    let { phone, ime } = req.body;
-
-    try {
-        let user = await userModel.findOneAndUpdate(userId, {
-            phone: phone,
-            ime: ime
-        });
-
-        if(!user) {
-            throw new error();
-        }
-
-        return res.status(201).json({
-            "success": [{
-                "msg": "Update successfull",
-                "data": user
-
-            }]
-        });
-    } catch(error) {
-        console.log(error);
-        return res.status(500).json({
-            "errors": [{
-                "msg": "problem while updating"
-            }]
-        })
-    }
+  userModel.findByIdAndUpdate({_id: req.params.userId}, req.body, {new: true},
+    function(err, task) {
+        if (err)
+        res.send(err);
+        res.json(task);
+    });
 }
 
 // const updateImeWithPhone = async (req, res, next) => {
 
 //     let { phone } = req.params;
 
-//     let { ime } = req.body;
+//     let { phone, ime } = req.body;
 
 //     try {
 //         let user = await userModel.findOneAndUpdate(phone, {
+//             phone: phone,
 //             ime: ime
 //         });
 
