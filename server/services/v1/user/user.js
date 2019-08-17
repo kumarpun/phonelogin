@@ -44,7 +44,28 @@ const getUserByPhone = async (req, res, next) => {
     })
   
 }
+const getByPhone = async (req, res, next) => {
 
+    let { phone } = req.params;
+
+    let user = await userModel.findOne({'phone': phone });
+
+    if(!user) {
+        return res.status(404).json({
+            "errors": [{
+                "msg": "no user found for this phone number"
+            }]
+        })
+    }
+
+    return res.status(200).json({
+        "success": [{
+            "msg": "phone fetched successfully",
+            "data": user
+
+        }] 
+    })
+}
 const updateIme = async (req, res, next) => {
 
     let { phone } = req.params;
@@ -92,5 +113,6 @@ module.exports = {
     getUserDetails : getUserDetails,
     // updateImeWithPhone : updateImeWithPhone,
     getUserByPhone : getUserByPhone,
-    updateIme : updateIme
+    updateIme : updateIme,
+    getByPhone : getByPhone
 }

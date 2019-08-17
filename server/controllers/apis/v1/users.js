@@ -5,6 +5,7 @@ let router = express.Router();
 
 router.get('/:userId', userService.getUserDetails);
 router.get('/', userService.getUserByPhone);
+router.post('/:phone', userService.getByPhone);
 
 router.put('/:phone',  userService.updateIme);
 // router.put('/phone', userService.updateImeWithPhone);
