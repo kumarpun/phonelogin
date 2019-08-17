@@ -6,7 +6,7 @@ let router = express.Router();
 router.get('/:userId', userService.getUserDetails);
 router.get('/', userService.getUserByPhone);
 
-router.put('/:userId',  userService.updateIme);
+router.put('/:phone',  userService.updateIme);
 // router.put('/phone', userService.updateImeWithPhone);
 
 module.exports = router;

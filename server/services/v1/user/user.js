@@ -47,12 +47,13 @@ const getUserByPhone = async (req, res, next) => {
 
 const updateIme = async (req, res, next) => {
 
-  userModel.findByIdAndUpdate({_id: req.params.userId}, req.body, {new: true},
-    function(err, task) {
-        if (err)
-        res.send(err);
-        res.json(task);
-    });
+    let { phone } = req.params;
+
+  userModel.findOneAndUpdate({phone: phone}, req.body, {new: true}, function(err, product) {
+    if (err)
+      res.send(err);
+    res.json(product);
+  });
 }
 
 // const updateImeWithPhone = async (req, res, next) => {
