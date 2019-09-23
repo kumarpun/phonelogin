@@ -1,3 +1,3 @@
 module.exports = {
-  'database': 'mongodb+srv://kumarpun:jimin@1234@cluster0-83sos.mongodb.net/phone?retryWrites=true&w=majority'
+  'database': 'mongodb://127.0.0.1:27017/restAPI'
 };
