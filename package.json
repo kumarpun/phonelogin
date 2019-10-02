@@ -5,8 +5,8 @@
   "main": "server.js",
   "build:deploy": "cross-env NODE_ENV=production webpack",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "development": "cross-env NODE_ENV=production"
   },
   "author": "",
